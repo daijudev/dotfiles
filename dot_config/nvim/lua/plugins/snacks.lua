@@ -135,7 +135,7 @@ return {
 		{
 			"<leader>rN",
 			function()
-				Snacks.rename()
+				Snacks.rename.rename_file()
 			end,
 			desc = "Rename file (LSP-aware)",
 		},
