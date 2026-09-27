@@ -1,0 +1,18 @@
+# nodebrew config
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# starship config
+eval "$(starship init zsh)"
+
+# carapace config
+autoload -U compinit && compinit
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
+
+# claude code path
+export PATH=$HOME/.local/bin:$PATH
+
+# zoxide config
+eval "$(zoxide init zsh)"
+
