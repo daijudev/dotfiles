@@ -31,7 +31,6 @@ end
 map({ "n", "v" }, "<D-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
 map({ "i", "c" }, "<C-;>", "<Esc>", { desc = "Exit current mode" })
 map("n", "<leader>lc", "@:", { desc = "Repeat last Ex command" })
-map("n", "<leader>r", "<cmd>source $MYVIMRC<CR>", { desc = "Reload configuration" })
 
 -- LSP and diagnostics.
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
@@ -39,16 +38,18 @@ map("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
 map("n", "ge", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
 -- Terminals.
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
-map("t", "<leader>tt", [[<C-\><C-n><cmd>ToggleTerm<CR>]], { desc = "Toggle floating terminal" })
+map({ "n", "t" }, "<leader>tt", function()
+	Snacks.terminal.toggle(nil, { win = { position = "float", border = "rounded" } })
+end, { desc = "Toggle floating terminal" })
 
 map("n", "<leader>gg", function()
-	require("config.toggleterm").toggle_lazygit()
-end, { desc = "Toggle LazyGit" })
-
-map("t", "<leader>gg", function()
-	vim.cmd.stopinsert()
-	require("config.toggleterm").toggle_lazygit()
+	Snacks.lazygit({
+		win = {
+			keys = {
+				["<leader>gg"] = { "hide", mode = { "n", "t" }, desc = "Hide LazyGit" },
+			},
+		},
+	})
 end, { desc = "Toggle LazyGit" })
 
 -- Git hunks.

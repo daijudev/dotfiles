@@ -25,7 +25,6 @@ return {
 		},
 		autoFold = {
 			enabled = false,
-			kinds = { "comment", "imports" },
 		},
 		foldKeymaps = {
 			setup = false,

@@ -181,12 +181,5 @@ return {
 			end,
 			desc = "Workspace Symbols",
 		},
-		{
-			"<leader>lg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Open LazyGit",
-		},
 	},
 }

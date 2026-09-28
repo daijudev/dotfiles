@@ -26,9 +26,6 @@ return {
 					prefix = "",
 				},
 			})
-			vim.lsp.enable("vtsls")
-			vim.lsp.enable("basedpyright")
-			vim.lsp.enable("ruff")
 		end,
 	},
 }
