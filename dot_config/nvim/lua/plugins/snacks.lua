@@ -15,6 +15,12 @@ return {
 						smartcase = true,
 						ignorecase = false,
 					},
+					layout = {
+						layout = {
+							preset = "sidebar",
+							position = "right",
+						},
+					},
 					actions = {
 						toggle_case = function(picker)
 							local matcher_opts = picker.opts.matcher
