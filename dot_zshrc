@@ -16,3 +16,12 @@ export PATH=$HOME/.local/bin:$PATH
 # zoxide config
 eval "$(zoxide init zsh)"
 
+# fzf history config
+function fzf-select-history() {
+    # BUFFER=$(history -n -r 1 | fzf --query="$LBUFFER")
+    BUFFER=$(history -n -r 1 | fzf --layout=reverse --height=40% --query="$LBUFFER")
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
